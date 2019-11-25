@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">רשימת רקדנים</string>
+    <string name="description1">ברוכים הבאים</string>
+    <string name="description2">לחצו על מנת להתחיל להוסיף רקדנים</string>
 </resources>

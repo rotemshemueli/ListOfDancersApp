@@ -6,54 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.rosol.listofdancers.BucketRecyclerView
         android:id="@+id/recyclerViewTask"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-
         android:paddingBottom="80dp" />
-
-<!--    <RelativeLayout-->
-<!--        android:id="@+id/empty_view"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerInParent="true">-->
+    <include layout="@layout/empty_view"
+        android:id="@+id/empty_view"/>
 
 
-<!--        <ImageView-->
-<!--            android:id="@+id/empty_dancer_image"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="200dp"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:src="@mipmap/empty_dancers" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/empty_title_text"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@id/empty_dancer_image"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:fontFamily="sans-serif-medium"-->
-<!--            android:paddingTop="16dp"-->
-<!--            android:text="הרשימה ריקה"-->
-<!--            android:textAppearance="?android:textAppearanceMedium" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/empty_subtitle_text"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@id/empty_title_text"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:fontFamily="sans-serif"-->
-<!--            android:paddingTop="8dp"-->
-<!--            android:text="התחל להוסיף רקדנים"-->
-<!--            android:textAppearance="?android:textAppearanceSmall"-->
-<!--            android:textColor="#A2AAB0" />-->
-
-
-<!--        />-->
-<!--    </RelativeLayout>-->
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

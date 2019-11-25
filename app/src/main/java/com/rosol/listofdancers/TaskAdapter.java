@@ -1,34 +1,23 @@
 package com.rosol.listofdancers;
 
-import android.Manifest;
-import android.app.Activity;
-import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rosol.listofdancers.database.TaskEntry;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder> {
 
@@ -50,10 +39,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     @NonNull
     @Override
     public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //inflate the item_to_show layout to a view
-        View view = LayoutInflater.from(context)
-                .inflate(R.layout.item_to_show, parent, false);
-        return new TaskViewHolder(view);
+            //inflate the item_to_show layout to a view
+            View view = LayoutInflater.from(context)
+                    .inflate(R.layout.item_to_show, parent, false);
+            return new TaskViewHolder(view);
+
     }
 
     @Override
