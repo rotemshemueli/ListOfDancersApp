@@ -71,13 +71,8 @@ public class AddTaskActivity extends AppCompatActivity {
 
 
           Intent intent = getIntent();
-//            if (intent != null){
-//                setTitle("ערוך רקדן/ רקדנית");
-//                mButton.setText("עדכן");
-//                mTaskId
-//            }
         if (intent != null && intent.hasExtra(EXTRA_TASK_ID)) {
-            mButton.setText("Update");
+            mButton.setText("עדכן");
             if (mTaskId == DEFAULT_TASK_ID) {
                 //populate the UI
                 mTaskId = intent.getIntExtra(EXTRA_TASK_ID, DEFAULT_TASK_ID);

@@ -145,15 +145,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
                 }
             });
 
-
-
-            dateToShow.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-            });
-            //    itemView.setOnClickListener(this);
+            editButton.setOnClickListener(this);
         }
 
         @Override

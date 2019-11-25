@@ -2,6 +2,7 @@ package com.rosol.listofdancers;
 
 import android.app.ActivityManager;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -12,12 +13,16 @@ public class AddTaskViewModelFactory extends ViewModelProvider.NewInstanceFactor
     private final int mTaskId;
 
 
+
     public AddTaskViewModelFactory(AppDatabase mDb, int mTaskId) {
         this.mDb = mDb;
         this.mTaskId = mTaskId;
     }
 
-    public <T extends ViewModel> T Create(Class<T> modelClass){
+    @NonNull
+    @Override
+    public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         return (T) new AddTaskViewModel(mDb,mTaskId);
     }
+
 }

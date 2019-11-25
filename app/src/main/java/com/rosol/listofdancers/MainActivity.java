@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
                 getApplicationContext(), DividerItemDecoration.VERTICAL);
 
         mRecyclerView.addItemDecoration(decoration);
+
           /*
          Add a touch helper to the RecyclerView to recognize when a user swipes to delete an item.
          An ItemTouchHelper enables touch behavior (like swipe and move) on each ViewHolder,
