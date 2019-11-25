@@ -1,8 +1,12 @@
 package com.rosol.listofdancers;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -129,9 +134,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             imagePhoneCall.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent dial = new Intent(Intent.ACTION_DIAL, Uri.parse(dialToPhoneNumberThatShow));
-                    dial.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.getApplicationContext().startActivity(dial);
+                   callPhoneNumber(dialToPhoneNumberThatShow);
                 }
             });
 
@@ -147,6 +150,33 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         }
     }
 
+
+
+    private void callPhoneNumber(String number) {
+        try{
+            if (Build.VERSION.SDK_INT >22){
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE)!=
+                        PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions((Activity) context,
+                            new String[]{Manifest.permission.CALL_PHONE},101);
+                    return;
+                }
+                Intent callIntent=new Intent(Intent.ACTION_DIAL);
+                callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                callIntent.setData(Uri.parse(number));
+                context.startActivity(callIntent);
+            }
+            else {
+                Intent callIntent=new Intent(Intent.ACTION_DIAL);
+                callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                callIntent.setData(Uri.parse(number));
+                context.startActivity(callIntent);
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
 
 
 }

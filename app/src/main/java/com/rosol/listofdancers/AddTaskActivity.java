@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.rosol.listofdancers.database.AppDatabase;
@@ -91,6 +90,7 @@ public class AddTaskActivity extends AppCompatActivity {
 
         }
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
