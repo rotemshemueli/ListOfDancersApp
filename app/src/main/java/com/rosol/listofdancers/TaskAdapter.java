@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +60,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         String dancerId = taskEntry.getDancerId();
         String gender = taskEntry.getGender();
         String date = taskEntry.getBirthDate();
+        String email=taskEntry.getEmail();
 
         //set values
         holder.nameToShow.setText(name);
@@ -69,6 +69,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         holder.idToShow.setText(dancerId);
         holder.dateToShow.setText(date);
         holder.phoneToShow.setText(phoneNumber);
+        holder.emailToShow.setText(email);
 
 
     }
@@ -116,7 +117,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     public class TaskViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener {
-        TextView nameToShow, genderToShow, phoneToShow, idToShow, dateToShow;
+        TextView nameToShow, genderToShow, phoneToShow, idToShow, dateToShow,emailToShow;
         Button editButton;
         ImageView imagePhoneCall;
 
@@ -129,14 +130,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             phoneToShow = itemView.findViewById(R.id.number_to_show);
             editButton = itemView.findViewById(R.id.edit_button);
             dateToShow = itemView.findViewById(R.id.date_to_show);
+            emailToShow=itemView.findViewById(R.id.email_to_show);
             imagePhoneCall = itemView.findViewById(R.id.button_to_call);
 
-            final String dialToPhoneNumberThatShow = phoneToShow.toString();
-            Log.d(dialToPhoneNumberThatShow,"this is the number");
             imagePhoneCall.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   callPhoneNumber(dialToPhoneNumberThatShow);
+                   callPhoneNumber(phoneToShow.getText().toString());
                 }
             });
 

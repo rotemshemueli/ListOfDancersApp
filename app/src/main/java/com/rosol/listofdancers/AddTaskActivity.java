@@ -42,7 +42,7 @@ public class AddTaskActivity extends AppCompatActivity {
 
     //fields for vies
 
-    EditText mName, mNumber, mId;
+    EditText mName, mNumber, mId, mEmail;
     TextView mDate;
     RadioGroup mRadioGroup;
     Button mButton;
@@ -103,6 +103,7 @@ public class AddTaskActivity extends AppCompatActivity {
         mId = findViewById(R.id.edit_id);
         mName = findViewById(R.id.edit_name);
         mNumber = findViewById(R.id.edit_phone);
+        mEmail=findViewById(R.id.edit_email);
         mDate = findViewById(R.id.edit_birth_date);
         mDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +142,7 @@ public class AddTaskActivity extends AppCompatActivity {
         mId.setText(task.getDancerId());
         mDate.setText(task.getBirthDate());
         mName.setText(task.getName());
+        mEmail.setText(task.getEmail());
         mNumber.setText(task.getPhoneNumber());
         setGenderInViews(task.getGender());
 
@@ -153,7 +155,8 @@ public class AddTaskActivity extends AppCompatActivity {
         String birthDate=mDate.getText().toString();
         String danceId=mId.getText().toString();
         String gender=getGenderFromViews();
-        final TaskEntry taskEntry=new TaskEntry(name,gender,danceId,birthDate,phoneNumber);
+        String email=mEmail.getText().toString();
+        final TaskEntry taskEntry=new TaskEntry(name,gender,danceId,birthDate,email,phoneNumber);
         AppExecutors.getInstance().diskIo().execute(new Runnable() {
             @Override
             public void run() {

@@ -4,33 +4,41 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import java.util.Date;
-
 @Entity(tableName = "task")
 public class TaskEntry {
 
-    private String name, phoneNumber, dancerId;
+    private String name, phoneNumber, dancerId,gender,birthDate,email;
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private String gender;
-    private String birthDate;
+
 
     @Ignore
-    public TaskEntry(String name, String gender, String dancerId, String birthDate, String phoneNumber) {
+    public TaskEntry(String name, String gender, String dancerId, String birthDate,String email, String phoneNumber) {
         this.name = name;
         this.gender = gender;
         this.dancerId = dancerId;
         this.birthDate = birthDate;
+        this.email=email;
         this.phoneNumber = phoneNumber;
     }
 
-    public TaskEntry(int id, String name, String gender, String dancerId, String birthDate, String phoneNumber) {
+    public TaskEntry(int id, String name, String gender, String dancerId, String birthDate,String email, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.gender = gender;
         this.dancerId = dancerId;
         this.birthDate = birthDate;
+        this.email=email;
         this.phoneNumber = phoneNumber;
+
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getId() {
