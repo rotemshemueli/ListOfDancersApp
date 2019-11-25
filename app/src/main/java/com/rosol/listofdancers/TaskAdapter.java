@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -130,7 +131,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             dateToShow = itemView.findViewById(R.id.date_to_show);
             imagePhoneCall = itemView.findViewById(R.id.button_to_call);
 
-            final String dialToPhoneNumberThatShow = String.valueOf(phoneToShow);
+            final String dialToPhoneNumberThatShow = phoneToShow.toString();
+            Log.d(dialToPhoneNumberThatShow,"this is the number");
             imagePhoneCall.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -163,13 +165,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
                 }
                 Intent callIntent=new Intent(Intent.ACTION_DIAL);
                 callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                callIntent.setData(Uri.parse(number));
+                callIntent.setData(Uri.parse("tel:"+number));
                 context.startActivity(callIntent);
             }
             else {
                 Intent callIntent=new Intent(Intent.ACTION_DIAL);
                 callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                callIntent.setData(Uri.parse(number));
+                callIntent.setData(Uri.parse("tel:"+number));
                 context.startActivity(callIntent);
             }
         }
